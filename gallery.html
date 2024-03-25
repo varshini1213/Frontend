@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Image Gallery</title>
+    <style>
+     
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: lightgoldenrodyellow;
+      }
+      div {
+        align-items: center;
+      }
+      form {
+        background-color: whitesmoke;
+        padding: 20px;
+        margin-left: 35%;
+        margin-right: 35%;
+        margin-top: 3%;
+      }
+      #confirm {
+        padding: 40px;
+      }
+      nav a {
+        color: white;
+        font-size: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      nav a:hover {
+        color: rgba(234, 232, 242, 0.87);
+        border-style: solid;
+        border-width: 2px;
+        border-color: #ffffcc;
+        text-align: center;
+      }
+      button {
+        border-radius: 4px;
+        border: none;
+        color: white;
+        background-color: brown;
+        width: 100%;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color:brown;
+      }
+      input {
+        padding: 10px;
+        width: 100%;
+      }
+    </style>
+  
+      
+  </head>
+  <body
+    style="
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      background-color:white;
+      font-family: 'Times New Roman', Times, serif;
+    "
+  >
+    <nav style="background-color: rgb(54, 192, 230); height: 80px; padding: 60px">
+      <a
+        style="text-decoration: none"
+        href="index.html"
+        id="home"
+        onclick="changeColor()"
+        >Home</a
+      >
+      <a href="gallery.html">Image-Gallery</a>
+      <a href="to-do.html">To-do List</a>
+      <a style="float: right; text-decoration: none" href="login.html"
+        >Login/SignUp</a
+      >
+      
+    </nav>
+    <center><h2>Profile</h2></center>
+    <section id="imageContainer">
+    </section>
+    <script src="scripts.js"></script>
+    
+   
+        
+  </body>
+</html>
