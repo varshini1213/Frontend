@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      input[type="text"],
+      input[type="password"] {
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: lightgoldenrodyellow;
+      }
+      div {
+        align-items: center;
+      }
+      form {
+        background-color: whitesmoke;
+        padding: 20px;
+        margin-left: 35%;
+        margin-right: 35%;
+        margin-top: 3%;
+      }
+      #confirm {
+        padding: 40px;
+      }
+      nav a {
+        color: white;
+        font-size: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      nav a:hover {
+        color: rgba(234, 232, 242, 0.87);
+        border-style: solid;
+        border-width: 2px;
+        border-color: #ffffcc;
+        text-align: center;
+      }
+      button {
+        border-radius: 4px;
+        border: none;
+        color: white;
+        background-color:rgb(54, 192, 230);
+        width: 100%;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color:darkblue;
+      }
+      input {
+        padding: 10px;
+        width: 100%;
+      }
+    </style>
+    <script>
+      let details = {
+        username: "",
+        password: "",
+        email: "",
+      };
+      function validate() {
+        var p = document.getElementById("pass").value;
+        if (p.length < 8) {
+          document.getElementById("perr").innerHTML =
+            "Password must be 8 characters long!!!";
+          document.getElementById("pass").value = "";
+        }
+      }
+      function changeuname() {
+        document.getElementById("unamet").style.color = "blue";
+      }
+      function handleSubmit(event) {
+        //event.preventDefault();
+        alert("Your account with username " + event.uname.value + " logged in");
+        // details.email = event.email.value;
+        details.name = event.uname.value;
+        details.password = event.psw.value;
+        console.log(details);
+      }
+      function changeColor() {
+        document.getElementById("home").style.color = "green";
+      }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#log").click(function () {
+          $("form").fadeOut();
+        });
+      });
+    </script>
+  </head>
+  <body
+    style="
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      background-color: white;
+      font-family: 'Times New Roman', Times, serif;
+    "
+  >
+    <nav style="background-color: rgb(54, 192, 230); height: 40px; padding: 20px">
+      <a
+        style="text-decoration: none"
+        href="index.html"
+        id="home"
+        onclick="changeColor()"
+        >Home</a
+      >
+      <a>About</a>
+      <a style="float: right; text-decoration: none" href="login.html"
+        >Login/SignUp</a
+      >
+    </nav>
+    <div id="details">
+      <form
+        style="border-radius: 10px; box-shadow: 5px 5px grey"
+        onsubmit="handleSubmit(this)"
+      >
+        <div>
+          <label for="uname" id="unamet"><b>Username:</b></label>
+          <br />
+          <br />
+          <input
+            type="text"
+            id="unamei"
+            placeholder="Enter username"
+            name="uname"
+            onfocus="changeuname()"
+            required
+          /><br />
+          <br />
+          <br />
+          <label for="psw"><b>Password:</b></label>
+          <br />
+          <br />
+          <input
+            type="password"
+            placeholder="Enter Password"
+            id="pass"
+            name="psw"
+            onchange="validate()"
+            required
+          /><br />
+          <span id="perr"></span>
+        </div>
+        <!-- <div id="confirm" style="text-align: center"> -->
+        <br />
+        <br />
+        <button type="submit" style="margin-right: 30px; padding: 10px">
+          Login
+        </button>
+        <a href="#" style="font-size: smaller">Forget password?</a>
+        <a href="#" style="align-items: right"
+          ><span id="log">Create new account</span></a
+        >
+        <!-- </div> -->
+      </form>
+      <!-- <div id="signupbutton" style="text-align: center; margin-top: 20px"> -->
+      <br />
+      <br />
+      <a style="text-decoration: none; color: white" href="signup.html">
+        <button
+          style="padding: 10px; width: 30%; margin-left: 35%; margin-right: 35%"
+          id="signup"
+        >
+          Sign Up
+        </button>
+      </a>
+      <!-- </div> -->
+    </div>
+  </body>
+</html>
