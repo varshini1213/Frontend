@@ -1,0 +1,223 @@
+<html>
+  <head>
+    <style>
+      nav a {
+        color: white;
+        font-size: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      nav a:hover {
+        color: rgba(234, 232, 242, 0.87);
+        border-style: solid;
+        border-width: 2px;
+        border-color: #ffffcc;
+        text-align: center;
+      }
+      form {
+        width: 400px;
+        margin: 0 auto;
+        background-color: whitesmoke;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 5px grey;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="email"],
+      input[type="password"] ,
+      input[type="date"]
+      
+      {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+
+      button[type="submit"] {
+        width: 100%;
+        background-color:rgb(54, 192, 230);
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button[type="submit"]:hover {
+        background-color: darkblue;
+      }
+    </style>
+    <script>
+      function validateEmail() {
+        var p = document.getElementById("email").value;
+        if (!containsaddress(p)) {
+          document.getElementById("eerr").innerHTML = "Enter a valid email!!!";
+          document.getElementById("email").value = "";
+          //document.getElementById("eerr").value = "";
+        }
+      }
+      function validate() {
+        var p = document.getElementById("password").value;
+        if (!containsSpecialChars(p)) {
+          document.getElementById("perr").innerHTML =
+            "Password must contain one special character!!!";
+          document.getElementById("password").value = "";
+        }
+        if (!containsNumbers(p)) {
+          document.getElementById("perr").innerHTML =
+            "Password must contain one number!!!";
+          document.getElementById("password").value = "";
+        }
+        if (p.length < 8) {
+          document.getElementById("perr").innerHTML =
+            "Password must be 8 characters long!!!";
+          document.getElementById("password").value = "";
+        }
+      }
+      function containsaddress(str) {
+        const address = /[@]/;
+        return address.test(str);
+      }
+      function containsSpecialChars(str) {
+        const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+        return specialChars.test(str);
+      }
+      function containsNumbers(str) {
+        const numbers = /[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]/;
+        return numbers.test(str);
+      }
+      function handleSubmit(event) {
+        let user = {
+          username: event.name.value,
+          emailid: this.email.value,
+          add: this.address.value,
+          pas: this.password.value,
+        };
+        console.log(user);
+        alert("You account with username " + user.username + " is created.");
+      }
+    </script>
+  </head>
+  <body
+    style="
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      background-color:white;
+      font-family: 'Times New Roman', Times, serif;
+    "
+  >
+    <nav style="background-color: rgb(54, 192, 230); height: 40px; padding: 20px">
+      <a
+        style="text-decoration: none"
+        href="index.html"
+        id="home"
+        onclick="changeColor()"
+        >Home</a
+      >
+      <a>About</a>
+      <a style="float: right; text-decoration: none" href="login.html"
+        >Login/Sign Up</a
+      >
+    </nav>
+    <form style="margin-top: 20px" method="get" onsubmit="handleSubmit(this)">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        onchange="validateEmail()"
+        required
+      />
+      <span id="eerr"></span>
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        onchange="validate()"
+        required
+      />
+      <span id="perr"></span>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="Username">UserName:</label>
+      <input type="text" id="Uname" name="Uname" maxlength="10" required />
+
+      <label for="Mobile No">Mobile No:</label>
+      <input type="number" id="Mno" name="MobileNo" required />
+
+      <label>Gender:</label>
+<input type="radio" name="gender" value="male" > Male
+<input type="radio" name="gender" value="female"> Female <br/><br/>
+
+<label>Mode of Contact:</label>
+<input type="checkbox" name="contact_mode" value="gmail"> Gmail
+<input type="checkbox" name="contact_mode" value="linkedin"> LinkedIn
+<input type="checkbox" name="contact_mode" value="phone"> Phone Number <br/><br/>
+
+     <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required />
+<div id="Department" style="display:none;">
+  <label for="Department">Department Name:</label>
+<select id="Department" name="dept">
+  <option value="CSE">CSE</option>
+  <option value="ECE">ECE</option>
+  <option value="EEE">EEE</option>
+</select>
+</div><br/><br/>
+<label>Comment (max 100 words):</label>
+<textarea type="text" name="comment" maxlength="500"></textarea><br/><br/>
+
+<label for="known language">Select a language:</label>
+<input type="text" id="plang" name="programming language" list="programming-list">
+
+<datalist id="programming-list">
+  <option value="C">
+  <option value="CPP">
+  <option value="Python">
+  <option value="Java">
+  <option value="Javascript">
+</datalist>
+
+
+<script>
+  
+  const dobInput = document.getElementById("dob");
+
+
+  dobInput.addEventListener("change", function() {
+    
+    const dob = new Date(this.value);
+    const age = new Date(Date.now() - dob.getTime()).getUTCFullYear() - 1970;
+    
+    
+    const dept = document.getElementById("Department");
+    if (age >= 16) {
+      dept.style.display = "block";
+    } else {
+      dept.style.display = "none";
+    }
+  });
+</script>
+
+
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </body>
+</html>
